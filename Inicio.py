@@ -4,11 +4,6 @@ import json
 import time
 
 # Configuración de la página
-st.set_page_config(
-    page_title="Lector de Sensor MQTT",
-    page_icon="📡",
-    layout="centered"
-)
 
 # Variables de estado
 if 'sensor_data' not in st.session_state:
@@ -49,6 +44,9 @@ def get_mqtt_message(broker, port, topic, client_id):
         return {"error": str(e)}
 
 # Sidebar - Configuración
+from aurora import app_header, footer
+app_header()
+
 with st.sidebar:
     st.subheader('⚙️ Configuración de Conexión')
     
@@ -65,7 +63,6 @@ with st.sidebar:
                               help='Identificador único para este cliente')
 
 # Título
-st.title('📡 Lector de Sensor MQTT')
 
 # Información al inicio
 with st.expander('ℹ️ Información', expanded=False):
@@ -87,7 +84,7 @@ with st.expander('ℹ️ Información', expanded=False):
 st.divider()
 
 # Botón para obtener datos
-if st.button('🔄 Obtener Datos del Sensor', use_container_width=True):
+if st.button('🔄 Obtener Datos del Sensor', use_container_width=True, type="primary"):
     with st.spinner('Conectando al broker y esperando datos...'):
         sensor_data = get_mqtt_message(broker, int(port), topic, client_id)
         st.session_state.sensor_data = sensor_data
@@ -119,3 +116,6 @@ if st.session_state.sensor_data:
         else:
             # Si no es diccionario, mostrar como texto
             st.code(data)
+
+
+footer("TEXTO / IMAGEN / VOZ / INTERACCIÓN")
