@@ -1,0 +1,18 @@
+{
+  "slug": "Recep_mqtt",
+  "entry": "Inicio.py",
+  "title": "Monitor de sensores",
+  "category": "IoT",
+  "headline": "Datos que llegan.",
+  "accent": "Señales que entiendes.",
+  "description": "Recibe una lectura MQTT y muestra sus campos como métricas.",
+  "input": "Broker, puerto, tópico e identificador del cliente.",
+  "output": "Último mensaje recibido, métricas y vista JSON.",
+  "steps": "Configura la conexión en el panel lateral y pulsa Obtener Datos del Sensor mientras el emisor publica en ese tópico.",
+  "technology": "Paho MQTT · JSON",
+  "limits": "Espera hasta cinco segundos por lectura. Depende de un emisor activo y de una conexión disponible.",
+  "image": "data_analisis.png",
+  "url": "https://recepmqtt-yjrvz6zzhbblxzpf7uctim.streamlit.app/",
+  "repo": "https://github.com/Jhuza/Recep_mqtt",
+  "kind": "vision"
+}
